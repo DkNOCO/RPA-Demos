@@ -46,8 +46,8 @@ extensions:
         x: 176
         'y': 116
       create_order:
-        x: 462
-        'y': 112
+        x: 407
+        'y': 109
         navigate:
           2652a0f5-62bd-3647-26ae-e82de7fb9ba1:
             targetId: 2de3d545-5bf4-23c0-a17c-1a3473b2ce26
