@@ -112,28 +112,43 @@ flow:
     - smoke_test:
         do:
           ProvisionApplication.smoke_test: []
+        publish:
+          - Title_Banner
         navigate:
-          - SUCCESS: string_equals
-          - WARNING: string_equals
+          - SUCCESS: pass_test
+          - WARNING: pass_test
           - FAILURE: on_failure
-    - string_equals:
+    - pass_test:
         do:
-          io.cloudslang.base.strings.string_equals: []
+          io.cloudslang.base.strings.string_equals:
+            - first_string: '${Title_Banner}'
+            - second_string: My Company Application
+        publish: []
         navigate:
           - SUCCESS: SUCCESS
-          - FAILURE: on_failure
+          - FAILURE: FAILURE
   results:
     - FAILURE
     - SUCCESS
 extensions:
   graph:
     steps:
+      pass_test:
+        x: 558
+        'y': 373
+        navigate:
+          b8f90e7f-970f-a3c7-3561-5c19eaeff26f:
+            targetId: 913390da-0b50-dc85-6510-db7ede7dc3e6
+            port: SUCCESS
+          26772436-d501-ce08-a8a2-1a16c3ae367f:
+            targetId: 3a5a9261-7041-2338-a2f9-904530e17884
+            port: FAILURE
       check_server_exists:
         x: 63
         'y': 92
       smoke_test:
-        x: 744
-        'y': 409
+        x: 713
+        'y': 369
       provision_database:
         x: 431
         'y': 101
@@ -141,21 +156,14 @@ extensions:
         x: 591
         'y': 103
       start_web_server:
-        x: 742
-        'y': 106
+        x: 769
+        'y': 98
       deploy_instance:
         x: 60
         'y': 305
-      string_equals:
-        x: 560
-        'y': 454
-        navigate:
-          b8f90e7f-970f-a3c7-3561-5c19eaeff26f:
-            targetId: 913390da-0b50-dc85-6510-db7ede7dc3e6
-            port: SUCCESS
       configure_application:
-        x: 861
-        'y': 236
+        x: 911
+        'y': 223
       provision_web_server_middleware:
         x: 250
         'y': 96
@@ -165,5 +173,9 @@ extensions:
     results:
       SUCCESS:
         913390da-0b50-dc85-6510-db7ede7dc3e6:
-          x: 296
-          'y': 475
+          x: 432
+          'y': 254
+      FAILURE:
+        3a5a9261-7041-2338-a2f9-904530e17884:
+          x: 363
+          'y': 409
