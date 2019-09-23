@@ -40,8 +40,8 @@ extensions:
   graph:
     steps:
       Order:
-        x: 94
-        'y': 109
+        x: 81
+        'y': 138
         navigate:
           95dde648-ed7d-410d-ea53-6c5b9fcb4b89:
             targetId: bb1a8b48-5268-533d-ce59-0c9f04a8857f
